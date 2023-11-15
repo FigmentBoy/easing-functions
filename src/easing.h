@@ -31,10 +31,13 @@ enum easing_functions
 	EaseInOutElastic,
 	EaseInBounce,
 	EaseOutBounce,
-	EaseInOutBounce
+	EaseInOutBounce,
+	EaseIn,
+	EaseOut,
+	EaseInOut
 };
 
-typedef double(*easingFunction)(double);
+typedef float(*easingFunction)(float, float);
 
 easingFunction getEasingFunction( easing_functions function );
 
