@@ -12,7 +12,7 @@ float easeInSine( float t, float r ) {
 }
 
 float easeOutSine( float t, float r ) {
-	return 1 + sin( 1.5707963 * (--t) );
+	return 1 + sin( 1.5707963 * (t - 1) );
 }
 
 float easeInOutSine( float t, float r ) {
@@ -36,30 +36,30 @@ float easeInCubic( float t, float r ) {
 }
 
 float easeOutCubic( float t, float r ) {
-    return 1 + (--t) * t * t;
+    return 1 + (t - 1) * (t - 1) * (t - 1);
 }
 
 float easeInOutCubic( float t, float r ) {
-    return t < 0.5 ? 4 * t * t * t : 1 + (--t) * (2 * (--t)) * (2 * t);
+    return t < 0.5 ? 4 * t * t * t : 1 + (t - 1) * (2 * (t - 2)) * (2 * (t - 2));
 }
 
 float easeInQuart( float t, float r ) {
-    t *= t;
-    return t * t;
+    float t2 = t * t;
+    return t2 * t2;
 }
 
 float easeOutQuart( float t, float r ) {
-    t = (--t) * t;
-    return 1 - t * t;
+    float t2 = (t - 1) * (t - 1);
+    return 1 - t2 * t2;
 }
 
 float easeInOutQuart( float t, float r ) {
     if( t < 0.5 ) {
-        t *= t;
-        return 8 * t * t;
+        float t2 = t * t;
+        return 8 * t2 * t2;
     } else {
-        t = (--t) * t;
-        return 1 - 8 * t * t;
+        float t2 = (t - 1) * (t - 1);
+        return 1 - 8 * t2 * t2;
     }
 }
 
@@ -69,8 +69,8 @@ float easeInQuint( float t, float r ) {
 }
 
 float easeOutQuint( float t, float r ) {
-    float t2 = (--t) * t;
-    return 1 + t * t2 * t2;
+    float t2 = (t - 1) * (t - 1);
+    return 1 + (t - 1) * t2 * t2;
 }
 
 float easeInOutQuint( float t, float r ) {
@@ -79,8 +79,8 @@ float easeInOutQuint( float t, float r ) {
         t2 = t * t;
         return 16 * t * t2 * t2;
     } else {
-        t2 = (--t) * t;
-        return 1 + 16 * t * t2 * t2;
+        t2 = (t - 1) * (t - 1);
+        return 1 + 16 * (t - 1) * t2 * t2;
     }
 }
 
@@ -121,14 +121,15 @@ float easeInBack( float t, float r ) {
 }
 
 float easeOutBack( float t, float r ) {
-    return 1 + (--t) * t * (2.70158 * t + 1.70158);
+    float t2 = t - 1;
+    return 1 + t2 * t2 * (2.70158 * t2 + 1.70158);
 }
 
 float easeInOutBack( float t, float r ) {
     if( t < 0.5 ) {
         return t * t * (7 * t - 2.5) * 2;
     } else {
-        return 1 + (--t) * t * 2 * (7 * t + 2.5);
+        return 1 + (t - 1) * (t - 1) * 2 * (7 * (t - 1) + 2.5);
     }
 }
 
