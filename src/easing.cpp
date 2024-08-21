@@ -7,53 +7,53 @@
 #define PI 3.1415926545
 #endif
 
-float easeInSine( float t, float r ) {
+float easeInSine( float const& t, float const& r ) {
 	return sin( 1.5707963 * t );
 }
 
-float easeOutSine( float t, float r ) {
+float easeOutSine( float const& t, float const& r ) {
 	return 1 + sin( 1.5707963 * (t - 1) );
 }
 
-float easeInOutSine( float t, float r ) {
+float easeInOutSine( float const& t, float const& r ) {
 	return 0.5 * (1 + sin( 3.1415926 * (t - 0.5) ) );
 }
 
-float easeInQuad( float t, float r ) {
+float easeInQuad( float const& t, float const& r ) {
     return t * t;
 }
 
-float easeOutQuad( float t, float r ) { 
+float easeOutQuad( float const& t, float const& r ) { 
     return t * (2 - t);
 }
 
-float easeInOutQuad( float t, float r ) {
+float easeInOutQuad( float const& t, float const& r ) {
     return t < 0.5 ? 2 * t * t : t * (4 - 2 * t) - 1;
 }
 
-float easeInCubic( float t, float r ) {
+float easeInCubic( float const& t, float const& r ) {
     return t * t * t;
 }
 
-float easeOutCubic( float t, float r ) {
+float easeOutCubic( float const& t, float const& r ) {
     return 1 + (t - 1) * (t - 1) * (t - 1);
 }
 
-float easeInOutCubic( float t, float r ) {
+float easeInOutCubic( float const& t, float const& r ) {
     return t < 0.5 ? 4 * t * t * t : 1 + (t - 1) * (2 * (t - 2)) * (2 * (t - 2));
 }
 
-float easeInQuart( float t, float r ) {
+float easeInQuart( float const& t, float const& r ) {
     float t2 = t * t;
     return t2 * t2;
 }
 
-float easeOutQuart( float t, float r ) {
+float easeOutQuart( float const& t, float const& r ) {
     float t2 = (t - 1) * (t - 1);
     return 1 - t2 * t2;
 }
 
-float easeInOutQuart( float t, float r ) {
+float easeInOutQuart( float const& t, float const& r ) {
     if( t < 0.5 ) {
         float t2 = t * t;
         return 8 * t2 * t2;
@@ -63,17 +63,17 @@ float easeInOutQuart( float t, float r ) {
     }
 }
 
-float easeInQuint( float t, float r ) {
+float easeInQuint( float const& t, float const& r ) {
     float t2 = t * t;
     return t * t2 * t2;
 }
 
-float easeOutQuint( float t, float r ) {
+float easeOutQuint( float const& t, float const& r ) {
     float t2 = (t - 1) * (t - 1);
     return 1 + (t - 1) * t2 * t2;
 }
 
-float easeInOutQuint( float t, float r ) {
+float easeInOutQuint( float const& t, float const& r ) {
     float t2;
     if( t < 0.5 ) {
         t2 = t * t;
@@ -84,15 +84,15 @@ float easeInOutQuint( float t, float r ) {
     }
 }
 
-float easeInExpo( float t, float r ) {
+float easeInExpo( float const& t, float const& r ) {
     return (pow( 2, 8 * t ) - 1) / 255;
 }
 
-float easeOutExpo( float t, float r ) {
+float easeOutExpo( float const& t, float const& r ) {
     return 1 - pow( 2, -8 * t );
 }
 
-float easeInOutExpo( float t, float r ) {
+float easeInOutExpo( float const& t, float const& r ) {
     if( t < 0.5 ) {
         return (pow( 2, 16 * t ) - 1) / 510;
     } else {
@@ -100,15 +100,15 @@ float easeInOutExpo( float t, float r ) {
     }
 }
 
-float easeInCirc( float t, float r ) {
+float easeInCirc( float const& t, float const& r ) {
     return 1 - sqrt( 1 - t );
 }
 
-float easeOutCirc( float t, float r ) {
+float easeOutCirc( float const& t, float const& r ) {
     return sqrt( t );
 }
 
-float easeInOutCirc( float t, float r ) {
+float easeInOutCirc( float const& t, float const& r ) {
     if( t < 0.5 ) {
         return (1 - sqrt( 1 - 2 * t )) * 0.5;
     } else {
@@ -116,16 +116,16 @@ float easeInOutCirc( float t, float r ) {
     }
 }
 
-float easeInBack( float t, float r ) {
+float easeInBack( float const& t, float const& r ) {
     return t * t * (2.70158 * t - 1.70158);
 }
 
-float easeOutBack( float t, float r ) {
+float easeOutBack( float const& t, float const& r ) {
     float t2 = t - 1;
     return 1 + t2 * t2 * (2.70158 * t2 + 1.70158);
 }
 
-float easeInOutBack( float t, float r ) {
+float easeInOutBack( float const& t, float const& r ) {
     if( t < 0.5 ) {
         return t * t * (7 * t - 2.5) * 2;
     } else {
@@ -133,17 +133,17 @@ float easeInOutBack( float t, float r ) {
     }
 }
 
-float easeInElastic( float t, float r ) {
+float easeInElastic( float const& t, float const& r ) {
     float t2 = t * t;
     return t2 * t2 * sin( t * PI * 4.5 );
 }
 
-float easeOutElastic( float t, float r ) {
+float easeOutElastic( float const& t, float const& r ) {
     float t2 = (t - 1) * (t - 1);
     return 1 - t2 * t2 * cos( t * PI * 4.5 );
 }
 
-float easeInOutElastic( float t, float r ) {
+float easeInOutElastic( float const& t, float const& r ) {
     float t2;
     if( t < 0.45 ) {
         t2 = t * t;
@@ -156,15 +156,15 @@ float easeInOutElastic( float t, float r ) {
     }
 }
 
-float easeInBounce( float t, float r ) {
+float easeInBounce( float const& t, float const& r ) {
     return pow( 2, 6 * (t - 1) ) * abs( sin( t * PI * 3.5 ) );
 }
 
-float easeOutBounce( float t, float r ) {
+float easeOutBounce( float const& t, float const& r ) {
     return 1 - pow( 2, -6 * t ) * abs( cos( t * PI * 3.5 ) );
 }
 
-float easeInOutBounce( float t, float r ) {
+float easeInOutBounce( float const& t, float const& r ) {
     if( t < 0.5 ) {
         return 8 * pow( 2, 8 * (t - 1) ) * abs( sin( t * PI * 7 ) );
     } else {
@@ -172,21 +172,25 @@ float easeInOutBounce( float t, float r ) {
     }
 }
 
-float easeIn( float t, float r ) {
+float easeIn( float const& t, float const& r ) {
     return pow( t, r );
 }
 
-float easeOut( float t, float r ) {
+float easeOut( float const& t, float const& r ) {
     return pow( t, 1 / r );
 }
 
-float easeInOut( float t, float r ) {
+float easeInOut( float const& t, float const& r ) {
     float t2 = t * 2;
     if ( t2 < 1 ) {
         return 0.5 * pow( t2, r );
     } else {
         return (1 - 0.5 * pow( 2 - t2, r ));
     }
+}
+
+float linear( float const& t, float const& r ) {
+    return t;
 }
 
 easingFunction getEasingFunction( easing_functions function )
@@ -227,6 +231,7 @@ easingFunction getEasingFunction( easing_functions function )
         easingFunctions.insert( std::make_pair( EaseIn, 		easeIn ) );
         easingFunctions.insert( std::make_pair( EaseOut, 		easeOut ) );
         easingFunctions.insert( std::make_pair( EaseInOut, 		easeInOut ) );
+        easingFunctions.insert( std::make_pair( Linear, 		linear ) );
 	}
 
 	auto it = easingFunctions.find( function );

@@ -34,10 +34,11 @@ enum easing_functions
 	EaseInOutBounce,
 	EaseIn,
 	EaseOut,
-	EaseInOut
+	EaseInOut,
+	Linear
 };
 
-typedef float(*easingFunction)(float, float);
+typedef float(*easingFunction)(float const&, float const&);
 
 easingFunction getEasingFunction( easing_functions function );
 
